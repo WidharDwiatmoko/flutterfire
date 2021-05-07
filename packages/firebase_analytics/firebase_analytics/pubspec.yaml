@@ -24,7 +24,7 @@ dependencies:
   firebase_analytics_web: ^0.1.0
   #firebase_analytics_platform_interface: ^1.0.1
 
-  firebase_analytics_platform_inteface:
+  firebase_analytics_platform_interface:
     git:
      url: https://github.com/WidharDwiatmoko/flutterfire.git
      ref: firebase_analytics-v7.0.1.fork
