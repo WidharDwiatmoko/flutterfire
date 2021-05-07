@@ -81,9 +81,9 @@ class FirebaseAnalytics {
   ///  * https://firebase.google.com/docs/reference/ios/firebaseanalytics/api/reference/Classes/FIRAnalytics#setscreennamescreenclass
   Future<void> setCurrentScreen(
       {@required String screenName,
-      String source = 'source',
-      String medium = 'medium',
-      String campaign = 'campaign',
+      String source,
+      String medium,
+      String campaign,
       String screenClassOverride = 'Flutter'}) async {
     if (screenName == null) {
       throw ArgumentError.notNull('screenName');
@@ -91,10 +91,10 @@ class FirebaseAnalytics {
 
     await _platformInstance.setCurrentScreen(
       screenName: screenName,
-      source: source,
-      medium: medium,
-      campaign: campaign,
       screenClassOverride: screenClassOverride,
+      _SOURCE: source,
+      _MEDIUM: medium,
+      _CAMPAIGN: campaign,
     );
   }
 
@@ -277,28 +277,28 @@ class FirebaseAnalytics {
   /// Log this event to supply the referral details of a re-engagement campaign.
   ///
   /// See: https://firebase.google.com/docs/reference/android/com/google/firebase/analytics/FirebaseAnalytics.Event.html#CAMPAIGN_DETAILS
-  Future<void> logCampaignDetails({
-    @required String source,
-    @required String medium,
-    @required String campaign,
-    String term,
-    String content,
-    String aclid,
-    String cp1,
-  }) {
-    return logEvent(
-      name: 'campaign_details',
-      parameters: filterOutNulls(<String, String>{
-        _SOURCE: source,
-        _MEDIUM: medium,
-        _CAMPAIGN: campaign,
-        _TERM: term,
-        _CONTENT: content,
-        _ACLID: aclid,
-        _CP1: cp1,
-      }),
-    );
-  }
+  // Future<void> logCampaignDetails({
+  //   @required String source,
+  //   @required String medium,
+  //   @required String campaign,
+  //   String term,
+  //   String content,
+  //   String aclid,
+  //   String cp1,
+  // }) {
+  //   return logEvent(
+  //     name: 'campaign_details',
+  //     parameters: filterOutNulls(<String, String>{
+  //       _SOURCE: source,
+  //       _MEDIUM: medium,
+  //       _CAMPAIGN: campaign,
+  //       _TERM: term,
+  //       _CONTENT: content,
+  //       _ACLID: aclid,
+  //       _CP1: cp1,
+  //     }),
+  //   );
+  // }
 
   /// Logs the standard `earn_virtual_currency` event.
   ///
