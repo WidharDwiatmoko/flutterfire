@@ -81,9 +81,9 @@ class FirebaseAnalytics {
   ///  * https://firebase.google.com/docs/reference/ios/firebaseanalytics/api/reference/Classes/FIRAnalytics#setscreennamescreenclass
   Future<void> setCurrentScreen(
       {@required String screenName,
-      String source,
-      String medium,
-      String campaign,
+      String source = 'Sources',
+      String medium = 'Mediums',
+      String campaign = 'Campaigns',
       String screenClassOverride = 'Flutter'}) async {
     if (screenName == null) {
       throw ArgumentError.notNull('screenName');
