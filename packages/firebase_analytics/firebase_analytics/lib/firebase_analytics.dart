@@ -91,9 +91,9 @@ class FirebaseAnalytics {
 
     await _platformInstance.setCurrentScreen(
       screenName: screenName,
-      _SOURCE: source,
-      _MEDIUM: medium,
-      _CAMPAIGN: campaign,
+      "source": source,
+      "medium": medium,
+      "campaign": campaign,
       screenClassOverride: screenClassOverride,
     );
   }
