@@ -41,16 +41,16 @@ class MethodChannelFirebaseAnalytics extends FirebaseAnalyticsPlatform {
   @override
   Future<void> setCurrentScreen({
     @required String screenName,
-    String source,
-    String medium,
-    String campaign,
+    // String source,
+    // String medium,
+    // String campaign,
     String screenClassOverride,
   }) {
     return _channel.invokeMethod<void>('setCurrentScreen', <String, String>{
       'screenName': screenName,
-      'source': source,
-      'medium': medium,
-      'campaign': campaign,
+      // 'source': source,
+      // 'medium': medium,
+      // 'campaign': campaign,
       'screenClassOverride': screenClassOverride,
     });
   }

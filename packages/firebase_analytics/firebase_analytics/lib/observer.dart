@@ -83,9 +83,9 @@ class FirebaseAnalyticsObserver extends RouteObserver<PageRoute<dynamic>> {
       analytics
           .setCurrentScreen(
               screenName: screenName,
-              source: _SOURCE,
-              medium: _MEDIUM,
-              campaign: _CAMPAIGN)
+              // source: _SOURCE,
+              // medium: _MEDIUM,
+              // campaign: _CAMPAIGN)
           .catchError(
         (Object error) {
           if (_onError == null) {
