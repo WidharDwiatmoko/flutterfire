@@ -921,7 +921,7 @@ const List<String> _reservedEventNames = <String>[
   'notification_open',
   'notification_receive',
   'os_update',
-  //'screen_view',
+  'screen_view',
   'session_start',
   'user_engagement',
 ];
