@@ -81,9 +81,9 @@ abstract class FirebaseAnalyticsPlatform {
   /// in your app.
   Future<void> setCurrentScreen({
     @required String screenName,
-    String source,
-    String medium,
-    String campaign,
+    // String source,
+    // String medium,
+    // String campaign,
     String screenClassOverride,
   }) {
     throw UnimplementedError(
