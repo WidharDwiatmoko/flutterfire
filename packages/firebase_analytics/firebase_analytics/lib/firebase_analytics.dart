@@ -15,7 +15,7 @@ import 'package:firebase_analytics_platform_interface/firebase_analytics_platfor
 
 /// Firebase Analytics API.
 class FirebaseAnalytics {
-  static const platform = const MethodChannel('flutterMethod/clientID');
+  //static const platform = const MethodChannel('flutterMethod/clientID');
 
   final _platformInstance = FirebaseAnalyticsPlatform.instance;
 
@@ -53,23 +53,23 @@ class FirebaseAnalytics {
   }
 
   //CLIENT ID
-  String nativeMessage = 'Unknown ClientID.';
+  // String nativeMessage = 'Unknown ClientID.';
 
-  Future<Null> getClientID() async {
-    String clientID;
-    try {
-      final int result = await platform.invokeMethod('getClientID');
-      clientID = 'ClientID is $result % .';
-      print(clientID);
-    } on PlatformException catch (e) {
-      clientID = "Failed to get ClientID: '${e.message}'.";
-      print(clientID);
-    }
+  // Future<Null> getClientID() async {
+  //   String clientID;
+  //   try {
+  //     final int result = await platform.invokeMethod('getClientID');
+  //     clientID = 'ClientID is $result % .';
+  //     print(clientID);
+  //   } on PlatformException catch (e) {
+  //     clientID = "Failed to get ClientID: '${e.message}'.";
+  //     print(clientID);
+  //   }
 
-    // setState(() {
-    //   nativeMessage = clientID;
-    // });
-  }
+  //   // setState(() {
+  //   //   nativeMessage = clientID;
+  //   // });
+  // }
 
   /// Sets whether analytics collection is enabled for this app on this device.
   ///
