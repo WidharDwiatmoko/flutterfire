@@ -66,9 +66,9 @@ class FirebaseAnalytics {
       print(clientID);
     }
 
-    setState(() {
-      nativeMessage = clientID;
-    });
+    // setState(() {
+    //   nativeMessage = clientID;
+    // });
   }
 
   /// Sets whether analytics collection is enabled for this app on this device.
