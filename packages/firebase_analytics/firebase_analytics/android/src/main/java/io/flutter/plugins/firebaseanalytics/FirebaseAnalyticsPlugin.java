@@ -21,6 +21,13 @@ import io.flutter.plugin.common.PluginRegistry;
 import java.util.ArrayList;
 import java.util.Map;
 
+// import io.flutter.plugin.common.MethodChannel;
+// import androidx.annotation.NonNull;
+// import io.flutter.embedding.android.FlutterActivity;
+// import io.flutter.embedding.engine.FlutterEngine;
+
+
+
 /** Flutter plugin for Firebase Analytics. */
 public class FirebaseAnalyticsPlugin implements MethodCallHandler, FlutterPlugin {
   private FirebaseAnalytics firebaseAnalytics;
@@ -179,4 +186,21 @@ public class FirebaseAnalyticsPlugin implements MethodCallHandler, FlutterPlugin
     firebaseAnalytics.resetAnalyticsData();
     result.success(null);
   }
+
+  // private void handleClientID(Result result){
+  //   MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
+  //     call, result ->
+      
+  //     firebaseAnalytics.getInstance(this).getAppInstanceId().addOnCompleteListener(new OnCompleteListener<String>() {
+  //       @Override
+  //       public void onComplete(@NonNull Task<String> task) {
+  //           if (task.isSuccessful()) {
+  //               String user_pseudo_id = task.getResult();
+  //           }
+  //       }
+  //   });
+  //   }
+    
+  // }
+
 }

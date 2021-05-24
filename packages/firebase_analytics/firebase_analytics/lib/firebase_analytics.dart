@@ -2,12 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 import 'package:firebase_analytics_platform_interface/firebase_analytics_platform_interface.dart';
 
 /// Firebase Analytics API.
 class FirebaseAnalytics {
+  static const platform = const MethodChannel('flutterMethod/clientID');
+
   final _platformInstance = FirebaseAnalyticsPlatform.instance;
 
   /// Namespace for analytics API available on Android only.
@@ -42,6 +50,15 @@ class FirebaseAnalytics {
 
     await _platformInstance.logEvent(name: name, parameters: parameters);
   }
+  //CLIENT ID
+//  Future<void> getClientID() async {
+//     //String batteryLevel;
+//     try {
+//       final int result = await platform.invokeMethod('getClientID');
+//       batteryLevel = 'ClientID is $result % .';
+//     } on PlatformException catch (e) {
+//       batteryLevel = "Failed to get ClientID: '${e.message}'.";
+//     }
 
   /// Sets whether analytics collection is enabled for this app on this device.
   ///
