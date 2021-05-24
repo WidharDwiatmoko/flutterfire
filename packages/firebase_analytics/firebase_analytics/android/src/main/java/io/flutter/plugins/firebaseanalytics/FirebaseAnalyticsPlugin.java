@@ -21,10 +21,10 @@ import io.flutter.plugin.common.PluginRegistry;
 import java.util.ArrayList;
 import java.util.Map;
 
-// import io.flutter.plugin.common.MethodChannel;
-// import androidx.annotation.NonNull;
-// import io.flutter.embedding.android.FlutterActivity;
-// import io.flutter.embedding.engine.FlutterEngine;
+import io.flutter.plugin.common.MethodChannel;
+import androidx.annotation.NonNull;
+import io.flutter.embedding.android.FlutterActivity;
+import io.flutter.embedding.engine.FlutterEngine;
 
 
 
@@ -32,6 +32,7 @@ import java.util.Map;
 public class FirebaseAnalyticsPlugin implements MethodCallHandler, FlutterPlugin {
   private FirebaseAnalytics firebaseAnalytics;
   private MethodChannel methodChannel;
+  private static final String CHANNEL = “flutterMethod/clientID”;
   // Only set registrar for v1 embedder.
   private PluginRegistry.Registrar registrar;
   // Only set activity for v2 embedder. Always access activity from getActivity() method.
@@ -187,20 +188,22 @@ public class FirebaseAnalyticsPlugin implements MethodCallHandler, FlutterPlugin
     result.success(null);
   }
 
-  // private void handleClientID(Result result){
-  //   MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
-  //     call, result ->
-      
-  //     firebaseAnalytics.getInstance(this).getAppInstanceId().addOnCompleteListener(new OnCompleteListener<String>() {
-  //       @Override
-  //       public void onComplete(@NonNull Task<String> task) {
-  //           if (task.isSuccessful()) {
-  //               String user_pseudo_id = task.getResult();
-  //           }
-  //       }
-  //   });
-  //   }
-    
-  // }
+  private void handleClientID(Result result){
+    if (call.method.equals("getClientID")) {
+      MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL).setMethodCallHandler((call, result) -> {
+        firebaseAnalytics.getInstance(this).getAppInstanceId().addOnCompleteListener(new OnCompleteListener<String>() {
+          @Override
+          public void onComplete(@NonNull Task<String> task) {
+            if (task.isSuccessful()) {
+              String user_pseudo_id = task.getResult();
+              result.success(user_pseudo_id);
+            }
+          }
+        }
+        );
+      }
+      );
+    }
+  }
 
 }

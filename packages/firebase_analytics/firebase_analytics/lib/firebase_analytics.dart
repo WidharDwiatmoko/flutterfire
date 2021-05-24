@@ -50,15 +50,23 @@ class FirebaseAnalytics {
 
     await _platformInstance.logEvent(name: name, parameters: parameters);
   }
+
   //CLIENT ID
-//  Future<void> getClientID() async {
-//     //String batteryLevel;
-//     try {
-//       final int result = await platform.invokeMethod('getClientID');
-//       batteryLevel = 'ClientID is $result % .';
-//     } on PlatformException catch (e) {
-//       batteryLevel = "Failed to get ClientID: '${e.message}'.";
-//     }
+  String nativeMessage = 'Unknown ClientID.';
+
+  Future<Null> getClientID() async {
+    String clientID;
+    try {
+      final int result = await platform.invokeMethod('getClientID');
+      clientID = 'ClientID is $result % .';
+    } on PlatformException catch (e) {
+      clientID = "Failed to get ClientID: '${e.message}'.";
+    }
+
+    setState(() {
+      nativeMessage = clientID;
+    });
+  }
 
   /// Sets whether analytics collection is enabled for this app on this device.
   ///
