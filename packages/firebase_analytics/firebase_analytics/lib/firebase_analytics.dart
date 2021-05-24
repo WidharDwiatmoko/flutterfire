@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
@@ -59,8 +60,10 @@ class FirebaseAnalytics {
     try {
       final int result = await platform.invokeMethod('getClientID');
       clientID = 'ClientID is $result % .';
+      print(clientID);
     } on PlatformException catch (e) {
       clientID = "Failed to get ClientID: '${e.message}'.";
+      print(clientID);
     }
 
     setState(() {
