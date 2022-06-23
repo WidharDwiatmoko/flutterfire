@@ -21,6 +21,7 @@ import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry;
 import java.util.Map;
 import java.util.ArrayList;
+import android.os.Parcelable;
 
 /** Flutter plugin for Firebase Analytics. */
 public class FirebaseAnalyticsPlugin implements MethodCallHandler, FlutterPlugin, ActivityAware {
