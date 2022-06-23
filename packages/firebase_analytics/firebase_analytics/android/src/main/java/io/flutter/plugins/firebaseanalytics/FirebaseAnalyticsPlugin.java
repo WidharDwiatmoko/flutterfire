@@ -20,6 +20,7 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry;
 import java.util.Map;
+import java.util.ArrayList;
 
 /** Flutter plugin for Firebase Analytics. */
 public class FirebaseAnalyticsPlugin implements MethodCallHandler, FlutterPlugin, ActivityAware {
@@ -27,7 +28,8 @@ public class FirebaseAnalyticsPlugin implements MethodCallHandler, FlutterPlugin
   private MethodChannel methodChannel;
   // Only set registrar for v1 embedder.
   private PluginRegistry.Registrar registrar;
-  // Only set activity for v2 embedder. Always access activity from getActivity() method.
+  // Only set activity for v2 embedder. Always access activity from getActivity()
+  // method.
   private Activity activity;
 
   public static void registerWith(PluginRegistry.Registrar registrar) {
@@ -75,7 +77,8 @@ public class FirebaseAnalyticsPlugin implements MethodCallHandler, FlutterPlugin
   }
 
   @Override
-  public void onDetachedFromActivity() {}
+  public void onDetachedFromActivity() {
+  }
 
   @Override
   public void onMethodCall(MethodCall call, Result result) {
